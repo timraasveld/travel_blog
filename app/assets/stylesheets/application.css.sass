@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+html, body, #root
+  height: 100%
+  margin: 0
+  padding: 0
+
+.app
+  display: flex
+  flex-direction: column
+  -webkit-box-direction: normal
+  -webkit-box-orient: vertical
+  height: 100%
+
+  .map
+    -webkit-flex: 1
+    flex: 1
+    position: relative
+
+    .story-marker
+      background: #007a3c
+      border: #d0d0d0 solid 2px
+      padding: 3px 8px
+      color: #fff
+      border-radius: 4px
+      font-size: 1.8em
+
+  .blog

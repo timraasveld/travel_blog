@@ -38,7 +38,10 @@ gem 'geocoder'
 
 gem 'react-rails'
 
+gem 'haml-rails', '~> 0.9'
+
 group :development do
+  gem 'awesome_print'
   gem 'byebug', platform: :mri
 
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

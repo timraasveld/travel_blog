@@ -15,5 +15,9 @@
 //= require turbolinks
 //= require react
 //= require react_ujs
+//
+// React vendor
+//= require GoogleMapReact
+//
 //= require components
 //= require_tree .
