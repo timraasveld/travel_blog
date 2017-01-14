@@ -3,6 +3,8 @@ class CreateStories < ActiveRecord::Migration[5.0]
     create_table :stories do |t|
       t.float :latitude
       t.float :longitude
+      t.string :map_css_class
+      t.string :sign_body
       t.string :body
       t.datetime :happened_at
 

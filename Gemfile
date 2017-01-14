@@ -40,6 +40,8 @@ gem 'react-rails'
 
 gem 'haml-rails', '~> 0.9'
 
+gem 'redcarpet'
+
 group :development do
   gem 'awesome_print'
   gem 'byebug', platform: :mri
