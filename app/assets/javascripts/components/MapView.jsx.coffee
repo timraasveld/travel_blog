@@ -26,7 +26,7 @@
 
 @StoryMarker = React.createClass
   getClassName: ->
-    "story-marker #{@props.story.map_css_class}"
+    "story-marker #{@props.story.css_class}"
 
   render: ->
-    `<span className='story-marker'>{ this.props.story.sign_body }</span>`
+    `<span className={ this.getClassName() }>{ this.props.story.sign_body }</span>`

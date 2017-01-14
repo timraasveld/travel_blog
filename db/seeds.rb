@@ -1,4 +1,4 @@
-Story.create! map_css_class: 'india-warning-tigers',
+Story.create! css_class: 'india-warning-tigers',
               sign_body: 'WARNING: tiger reservate
 
 please remain inside your car',

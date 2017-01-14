@@ -18,12 +18,12 @@ ActiveRecord::Schema.define(version: 20170104091912) do
   create_table "stories", force: :cascade do |t|
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "map_css_class"
+    t.string   "css_class"
     t.string   "sign_body"
     t.string   "body"
     t.datetime "happened_at"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
