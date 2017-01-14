@@ -29,4 +29,4 @@
     "story-marker #{@props.story.css_class}"
 
   render: ->
-    `<span className={ this.getClassName() }>{ this.props.story.sign_body }</span>`
+    `<span className={ this.getClassName() } dangerouslySetInnerHTML={ { __html: this.props.story.sign_body } }/>`

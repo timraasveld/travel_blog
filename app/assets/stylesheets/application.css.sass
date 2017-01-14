@@ -14,6 +14,8 @@
  *= require_self
  */
 
+$map-height: 380px
+
 @font-face
   font-family: 'Roadgeek'
   src: font-url('roadgeek.ttf') format('truetype')
@@ -26,16 +28,11 @@ html, body, #root
   padding: 0
 
 .app
-  display: flex
-  flex-direction: column
-  -webkit-box-direction: normal
-  -webkit-box-orient: vertical
   height: 100%
 
   .map
-    -webkit-flex: 1
-    flex: 1
-    position: relative
+    position: static
+    height: $map-height
 
     .story-marker
       position: absolute
@@ -45,14 +42,12 @@ html, body, #root
       color: #fff
       border-radius: 4px
       width: 290px
-      font-size: 22px
-      line-height: 30px
+      font-size: 0.9em
       font-family: 'Roadgeek'
 
       &.india-warning-tigers
 
   .blog
-    flex: 1
     .content
       position: absolute
       overflow: scroll
