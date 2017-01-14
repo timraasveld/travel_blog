@@ -1,14 +1,16 @@
 @BlogView = React.createClass
   render: ->
     `<div className="blog">
-       { this.renderStories() }
+       <div className="content">
+         { this.renderStories() }
+       </div>
      </div>`
 
   renderStories: ->
     { stories } = @props
 
-    stories.map (story) ->
-      `<StoryBlock story={ story } />`
+    stories.map (story, index) ->
+      `<StoryBlock key={ index } story={ story } />`
 
 @StoryBlock = React.createClass
   getClassName: ->
@@ -19,5 +21,5 @@
 
     `<div className={ this.getClassName() }>
        <h1>{ happenedAt }</h1>
-       <div className="body">{ body }</div>
+       <div className="body" dangerouslySetInnerHTML={ { __html: body } } />
      </div>`
