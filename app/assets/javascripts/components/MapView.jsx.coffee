@@ -6,12 +6,15 @@
   className: 'map'
 
   render: ->
+    { apiKey, defaultCenter, defaultZoom } = @props
+
     storyMarkers = @renderStoryMarkers()
 
     `<div className='map'>
        <GoogleMapReact
-        defaultCenter={ this.props.defaultCenter }
-        defaultZoom={ this.props.defaultZoom }
+        apiKey={ apiKey }
+        defaultCenter={ defaultCenter }
+        defaultZoom={ defaultZoom }
        >
          { storyMarkers }
        </GoogleMapReact>

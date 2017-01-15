@@ -7,6 +7,7 @@
   render: ->
     `<div className='app'>
       <MapView
+       apiKey={ this.state.googleMapsApiKey }
        stories={ this.state.stories }
        onStoryClick={ this.activateStory } />
       <BlogView
