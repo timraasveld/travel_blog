@@ -10,9 +10,11 @@
 
     storyMarkers = @renderStoryMarkers()
 
+    mapUrlOptions = if apiKey? then { key: apiKey } else {}
+
     `<div className='map'>
        <GoogleMapReact
-        apiKey={ apiKey }
+        bootstrapURLKeys={ mapUrlOptions }
         defaultCenter={ defaultCenter }
         defaultZoom={ defaultZoom }
        >

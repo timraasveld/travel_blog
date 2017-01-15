@@ -9,8 +9,7 @@
 
     `<div className='app'>
       <MapView
-       bootstrapURLKeys={ { key: google_maps_api_key,
-                            language: 'en' } }
+       apiKey={ google_maps_api_key }
        stories={ stories }
        onStoryClick={ this.activateStory } />
       <BlogView

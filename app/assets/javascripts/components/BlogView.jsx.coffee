@@ -18,7 +18,7 @@
 
   componentDidUpdate: (previousProps, previousState) ->
     if @props.active
-      ReactDOM.findDOMNode(this).scrollIntoView()
+      $(ReactDOM.findDOMNode(this)).scrollTo()
 
   render: ->
     { story: { id, happened_at, body } } = @props
