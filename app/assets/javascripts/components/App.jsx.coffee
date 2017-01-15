@@ -5,12 +5,14 @@
     @setState activeStoryId: storyId
 
   render: ->
+    { google_maps_api_key, stories, activeStoryId } = this.state
+
     `<div className='app'>
       <MapView
-       apiKey={ this.state.googleMapsApiKey }
-       stories={ this.state.stories }
+       apiKey={ google_maps_api_key }
+       stories={ stories }
        onStoryClick={ this.activateStory } />
       <BlogView
-       stories={ this.state.stories }
-       activeStoryId={ this.state.activeStoryId } />
+       stories={ stories }
+       activeStoryId={ activeStoryId } />
     </div>`
