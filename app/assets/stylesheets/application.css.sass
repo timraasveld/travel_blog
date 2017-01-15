@@ -17,6 +17,8 @@
 $map-height: 70vh
 $blog-height: 100vh - $map-height
 
+$standard-padding: 0 5em
+
 @font-face
   font-family: 'Roadgeek'
   src: font-url('roadgeek.ttf') format('truetype')
@@ -31,6 +33,9 @@ html, body, #root
 .app
   height: 100%
 
+  .map, .blog
+    padding: $standard-padding
+
   .map
     position: relative
     height: $map-height
@@ -41,8 +46,8 @@ html, body, #root
       background: #007a3c
       border: #d0d0d0 solid 2px
       padding: 4px 12px
-      color: #fff
-      border-radius: 4px
+      color: #fdfdfd
+      border-radius: 7px
       width: 290px
       font-size: 0.9em
       font-family: 'Roadgeek'
@@ -51,8 +56,15 @@ html, body, #root
         float: right
 
       &.india-warning-tigers
+        width: 144px
+
+        h1
+          text-align: center
 
   .blog
     position: relative
     height: $blog-height
     overflow: auto
+
+    .happened-at
+      float: right

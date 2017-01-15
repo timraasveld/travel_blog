@@ -21,9 +21,9 @@
       ReactDOM.findDOMNode(this).scrollIntoView()
 
   render: ->
-    { story: { id, happenedAt, body } } = @props
+    { story: { id, happened_at, body } } = @props
 
     `<div id={ id } className={ this.getClassName() }>
-       <h1>{ happenedAt }</h1>
-       <div className="body" dangerouslySetInnerHTML={ { __html: body } } />
+       <span className='happened-at'>{ moment(happened_at).format('MMMM Do YYYY') }</span>
+       <div className='body' dangerouslySetInnerHTML={ { __html: body } } />
      </div>`
