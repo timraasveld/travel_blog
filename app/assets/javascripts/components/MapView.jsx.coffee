@@ -6,27 +6,38 @@
   className: 'map'
 
   render: ->
+    storyMarkers = @renderStoryMarkers()
+
     `<div className='map'>
        <GoogleMapReact
         defaultCenter={ this.props.defaultCenter }
         defaultZoom={ this.props.defaultZoom }
        >
-         { this.renderStoryMarkers() }
+         { storyMarkers }
        </GoogleMapReact>
      </div>`
 
 
   renderStoryMarkers: ->
-    @props.stories.map (story, index) ->
+    { stories, onStoryClick } = @props
+
+    stories.map (story, index) =>
+      { latitude, longitude } = story
+
       `<StoryMarker
         key={ index }
+        onClick={ onStoryClick }
         story={ story }
-        lat={ story.latitude }
-        lng={ story.longitude } />`
+        lat={ latitude }
+        lng={ longitude } />`
 
 @StoryMarker = React.createClass
   getClassName: ->
     "story-marker #{@props.story.css_class}"
 
+  onClick: ->
+    { onClick, story } = @props
+    onClick story.id
+
   render: ->
-    `<span className={ this.getClassName() } dangerouslySetInnerHTML={ { __html: this.props.story.sign_body } }/>`
+    `<span onClick={ this.onClick } className={ this.getClassName() } dangerouslySetInnerHTML={ { __html: this.props.story.sign_body } }/>`

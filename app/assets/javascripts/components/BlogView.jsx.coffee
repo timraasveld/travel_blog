@@ -7,19 +7,23 @@
      </div>`
 
   renderStories: ->
-    { stories } = @props
+    { stories, activeStoryId } = @props
 
     stories.map (story, index) ->
-      `<StoryBlock key={ index } story={ story } />`
+      `<StoryBlock active={ activeStoryId == story.id } key={ index } story={ story } />`
 
 @StoryBlock = React.createClass
   getClassName: ->
     "story-block #{@props.story.css_class}"
 
-  render: ->
-    { story: { happenedAt, body } } = @props
+  componentDidUpdate: (previousProps, previousState) ->
+    if @props.active
+      ReactDOM.findDOMNode(this).scrollIntoView()
 
-    `<div className={ this.getClassName() }>
+  render: ->
+    { story: { id, happenedAt, body } } = @props
+
+    `<div id={ id } className={ this.getClassName() }>
        <h1>{ happenedAt }</h1>
        <div className="body" dangerouslySetInnerHTML={ { __html: body } } />
      </div>`
