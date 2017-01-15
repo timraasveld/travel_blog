@@ -9,7 +9,7 @@ please remain inside your car',
 blablabla'
 
 Story.create! css_class: 'tehran-mountaineering',
-              sign_body: '# Mount Damavand   70KM',
+              sign_body: '# Mount Damavand <span class="distance-to-go">70</span>',
               happened_at: '15-10-2016',
               location: 'Tehran, Iran',
               body: '# Climbing Mount Damavand

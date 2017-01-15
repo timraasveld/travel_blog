@@ -14,7 +14,8 @@
  *= require_self
  */
 
-$map-height: 380px
+$map-height: 70vh
+$blog-height: 100vh - $map-height
 
 @font-face
   font-family: 'Roadgeek'
@@ -31,7 +32,7 @@ html, body, #root
   height: 100%
 
   .map
-    position: static
+    position: relative
     height: $map-height
 
     .story-marker
@@ -46,9 +47,12 @@ html, body, #root
       font-size: 0.9em
       font-family: 'Roadgeek'
 
+      .distance-to-go
+        float: right
+
       &.india-warning-tigers
 
   .blog
-    .content
-      position: absolute
-      overflow: scroll
+    position: relative
+    height: $blog-height
+    overflow: auto
