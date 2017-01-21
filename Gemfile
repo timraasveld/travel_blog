@@ -32,9 +32,16 @@ gem 'geocoder'
 
 gem 'react-rails'
 
+# HTML template engine
 gem 'haml-rails', '~> 0.9'
 
+# Markdown renderer
 gem 'redcarpet'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.4'
+  gem 'fabrication'
+end
 
 group :development do
   gem 'awesome_print'
@@ -49,7 +56,5 @@ group :development do
 
   gem 'guard'
   gem 'guard-bundler', require: false
+  gem 'guard-rspec', require: false
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

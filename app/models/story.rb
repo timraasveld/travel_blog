@@ -9,13 +9,14 @@ class Story < ApplicationRecord
   reverse_geocoded_by :latitude, :longitude
   after_validation :geocode
 
-  def sign_body_html
-    render_markdown sign_body
+  # Call sign_body_html or body_html for rendered markdown
+  %i(sign_body body).each do |markdown_attribute|
+    define_method "#{markdown_attribute}_html" do
+      render_markdown send(markdown_attribute)
+    end
   end
 
-  def body_html
-    render_markdown body
-  end
+  private
 
   def render_markdown(markdown)
     renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
