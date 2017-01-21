@@ -63,3 +63,8 @@ guard :rspec, cmd: "bundle exec rspec" do
   watch(rails.view_dirs)     { |m| rspec.spec.call("features/#{m[1]}") }
   watch(rails.layouts)       { |m| rspec.spec.call("features/#{m[1]}") }
 end
+
+require_relative 'lib/guard/story_seeds'
+guard :story_seeds do
+  watch(%r{db/stories/.+\.yml})
+end

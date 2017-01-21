@@ -30,7 +30,7 @@ gem 'momentjs-rails'
 
 gem 'geocoder'
 
-gem 'react-rails'
+gem 'react-rails', github: 'reactjs/react-rails'
 
 # HTML template engine
 gem 'haml-rails', '~> 0.9'
