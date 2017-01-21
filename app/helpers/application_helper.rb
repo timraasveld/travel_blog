@@ -1,6 +1,9 @@
 module ApplicationHelper
   def render_markdown(markdown)
-    renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+    config = { autolink: true,
+               tables: true,
+               hard_wrap: true }
+    renderer = Redcarpet::Markdown.new(HTMLRenderer, config)
     renderer.render markdown
   end
 end

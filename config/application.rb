@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module TravelBlog
   class Application < Rails::Application
-    config.autoload_paths << "#{Rails.root}/app/serializers"
+    %w(serializers markdown_renderers).each do |code_directory|
+      config.autoload_paths << "#{Rails.root}/app/#{code_directory}"
+    end
   end
 end

@@ -13,6 +13,8 @@ module Guard
     end
 
     def reseed_stories
+      log 'Reseeding stories'
+
       Story.delete_all
       load "#{Rails.root}/db/seeds.rb"
 
