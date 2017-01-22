@@ -1,6 +1,6 @@
 @MapView = React.createClass
   getDefaultProps: ->
-    defaultCenter: { lat: 33.8982912, lng: 45.1447584 }
+    defaultCenter: { lat: 23.5123858, lng: 69.6495247 }
     defaultZoom: 4
 
   className: 'map'
