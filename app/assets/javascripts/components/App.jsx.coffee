@@ -1,18 +1,17 @@
 @App = React.createClass
-  getInitialState: -> @props
+  getInitialState: -> @props.route.initialState
 
-  activateStory: (storyId) ->
-    @setState activeStoryId: storyId
+  activeStoryKey: ->
+    @props.routeParams.storyKey || @state.stories[0].key
 
   render: ->
-    { google_maps_api_key, stories, activeStoryId } = this.state
+    { google_maps_api_key, stories, activeStoryKey } = this.state
 
     `<div className='app'>
       <MapView
        apiKey={ google_maps_api_key }
-       stories={ stories }
-       onStoryClick={ this.activateStory } />
+       stories={ stories } />
       <BlogView
        stories={ stories }
-       activeStoryId={ activeStoryId } />
+       activeStoryKey={ this.activeStoryKey() } />
     </div>`

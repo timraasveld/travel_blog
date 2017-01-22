@@ -1,24 +1,20 @@
 @BlogView = React.createClass
   render: ->
     `<div className="blog">
-       <div className="content">
-         { this.renderStories() }
-       </div>
+       { this.renderStory() }
      </div>`
 
-  renderStories: ->
-    { stories, activeStoryId } = @props
+  renderStory: ->
+    { stories } = @props
+    `<StoryBlock story={ stories[this.indexOfActiveStory()] } />`
 
-    stories.map (story, index) ->
-      `<StoryBlock active={ activeStoryId == story.id } key={ index } story={ story } />`
+  indexOfActiveStory: ->
+    @props.stories.findIndex (story) =>
+      story.key == @props.activeStoryKey
 
 @StoryBlock = React.createClass
   getClassName: ->
-    "story-block #{@props.story.css_class}"
-
-  componentDidUpdate: (previousProps, previousState) ->
-    if @props.active
-      $(ReactDOM.findDOMNode(this)).scrollTo()
+    "story-block #{@props.story.key}"
 
   render: ->
     { story: { id, happened_at, body } } = @props

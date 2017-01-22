@@ -2,7 +2,7 @@
 class Story < ApplicationRecord
   default_scope { order(:happened_at) }
 
-  validates :css_class, :sign_body, :happened_at, :body, presence: true
+  validates :key, :sign_body, :happened_at, :body, presence: true
 
   # Allow setting latitude and longitude by setting non-persistent location,
   # e.g. "Assen, Drenthe, Netherlands" or "Monkey Temple Kathmandu"

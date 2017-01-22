@@ -1,6 +1,6 @@
 class StorySerializer < ActiveModel::Serializer
   include ApplicationHelper
-  attributes :id, :latitude, :longitude, :css_class, :sign_body, :body, :happened_at
+  attributes :id, :latitude, :longitude, :key, :sign_body, :body, :happened_at
 
   def sign_body
     render_markdown object.sign_body

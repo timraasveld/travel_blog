@@ -5,7 +5,7 @@ describe StorySerializer do
   it 'includes expected attributes (see expectation)' do
     expect(subject).to eq id: story.id,
                           body: "<h1>Title</h1>\n",
-                          css_class: story.css_class,
+                          key: story.key,
                           happened_at: story.happened_at.iso8601,
                           latitude: story.latitude,
                           longitude: story.longitude,

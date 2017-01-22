@@ -1,3 +1,5 @@
+{ Link } = ReactRouter
+
 @MapView = React.createClass
   getDefaultProps: ->
     defaultCenter: { lat: 23.5123858, lng: 69.6495247 }
@@ -23,25 +25,24 @@
      </div>`
 
   renderStoryMarkers: ->
-    { stories, onStoryClick } = @props
+    { stories } = @props
 
     stories.map (story, index) =>
       { latitude, longitude } = story
 
       `<StoryMarker
         key={ index }
-        onClick={ onStoryClick }
         story={ story }
         lat={ latitude }
         lng={ longitude } />`
 
 @StoryMarker = React.createClass
   getClassName: ->
-    "story-marker #{@props.story.css_class}"
-
-  onClick: ->
-    { onClick, story } = @props
-    onClick story.id
+    "story-marker #{@props.story.key}"
 
   render: ->
-    `<span onClick={ this.onClick } className={ this.getClassName() } dangerouslySetInnerHTML={ { __html: this.props.story.sign_body } }/>`
+    { story: { sign_body, key } } = @props
+
+    `<Link to={ '/' + key }>
+       <span className={ this.getClassName() } dangerouslySetInnerHTML={ { __html: sign_body } } />
+     </Link>`

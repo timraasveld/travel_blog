@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20170104091912) do
   create_table "stories", force: :cascade do |t|
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "css_class"
+    t.string   "key"
     t.string   "sign_body"
     t.string   "body"
     t.datetime "happened_at"

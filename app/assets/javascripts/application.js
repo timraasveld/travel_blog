@@ -11,16 +11,15 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require jquery.scrollTo
-//= require turbolinks
 //= require moment
 //
 //= require react
 //= require react_ujs
 //
-// React vendor
+//  React vendor
 //= require GoogleMapReact
+//= require react-router
 //
 //= require components
 //= require_tree .
