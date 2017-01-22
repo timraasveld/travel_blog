@@ -1,0 +1,23 @@
+AllCops:
+  Exclude:
+    # Generated code
+    - bin/*
+    - db/schema.rb
+
+Metrics/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Exclude:
+    # Obvious class meanings
+    - config/application.rb
+    - db/migrate/*
+    - app/serializers/*
+
+Style/RegexpLiteral:
+  Exclude:
+    # In Guard plugins, use of %r regex notation is common.
+    - Guardfile
+
+Bundler/OrderedGems:
+  Enabled: false

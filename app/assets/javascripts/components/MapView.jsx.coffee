@@ -22,7 +22,6 @@
        </GoogleMapReact>
      </div>`
 
-
   renderStoryMarkers: ->
     { stories, onStoryClick } = @props
 

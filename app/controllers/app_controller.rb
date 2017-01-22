@@ -1,3 +1,4 @@
+# Controller that shows the React SPA app with all data that may be required.
 class AppController < ApplicationController
   def index
     stories = Story.all.map do |story|

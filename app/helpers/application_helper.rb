@@ -1,3 +1,4 @@
+# Helper methods that can be used in both views (app/views) and serializer (app/serializers)
 module ApplicationHelper
   def render_markdown(markdown)
     config = { autolink: true,

@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
@@ -41,6 +40,7 @@ gem 'redcarpet'
 group :development, :test do
   gem 'rspec-rails', '~> 3.4'
   gem 'fabrication'
+  gem 'rubocop', '~> 0.47.1', require: false
 end
 
 group :development do
@@ -57,4 +57,5 @@ group :development do
   gem 'guard'
   gem 'guard-bundler', require: false
   gem 'guard-rspec', require: false
+  gem 'guard-rubocop', require: false
 end

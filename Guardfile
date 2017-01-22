@@ -27,8 +27,8 @@ guard :bundler do
   files.each { |file| watch(helper.real_path(file)) }
 end
 
-guard :rspec, cmd: "bundle exec rspec" do
-  require "guard/rspec/dsl"
+guard :rspec, cmd: 'bundle exec rspec' do
+  require 'guard/rspec/dsl'
   dsl = Guard::RSpec::Dsl.new(self)
 
   # RSpec files
@@ -67,4 +67,9 @@ end
 require_relative 'lib/guard/story_seeds'
 guard :story_seeds do
   watch(%r{db/stories/.+\.yml})
+end
+
+guard :rubocop, all_on_start: false, cli: '--display-cop-names' do
+  watch(%r{.+\.rb$})
+  watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
 end

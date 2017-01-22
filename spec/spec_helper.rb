@@ -23,7 +23,7 @@ RSpec.configure do |config|
   # is tagged with `:focus`, all examples get run.
   config.filter_run_when_matching :focus
 
-  config.example_status_persistence_file_path = "spec/examples.txt"
+  config.example_status_persistence_file_path = 'spec/examples.txt'
 
   if config.files_to_run.one?
     # Use the documentation formatter for detailed output,

@@ -1,8 +1,9 @@
 require 'guard/compat/plugin'
-require File.expand_path('../../../config/environment',  __FILE__)
+require File.expand_path('../../../config/environment', __FILE__)
 require 'story'
 
 module Guard
+  # Automatically rerun seeds after stories change
   class StorySeeds < Plugin
     def run_on_additions(_)
       reseed_stories
@@ -26,4 +27,3 @@ module Guard
     end
   end
 end
-
