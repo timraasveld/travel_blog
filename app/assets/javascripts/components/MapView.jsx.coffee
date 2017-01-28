@@ -5,6 +5,14 @@
     defaultCenter: { lat: 23.5123858, lng: 69.6495247 }
     defaultZoom: 4
 
+  mapOptions:
+    gestureHandling: 'greedy'
+    backgroundColor: '#fff'
+    fullscreenControl: false
+
+  showMarkers: ->
+    debugger
+
   render: ->
     { apiKey, defaultCenter, defaultZoom } = @props
 
@@ -17,6 +25,7 @@
         bootstrapURLKeys={ mapUrlOptions }
         defaultCenter={ defaultCenter }
         defaultZoom={ defaultZoom }
+        options={ this.mapOptions }
        >
          { storyMarkers }
        </GoogleMapReact>

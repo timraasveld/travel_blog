@@ -18,6 +18,8 @@ $map-height: 40vh
 $blog-height: 100vh - $map-height
 $introduction-height: 50vh
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans')
+
 @font-face
   font-family: 'Roadgeek'
   src: font-url('roadgeek.ttf') format('truetype')
@@ -27,6 +29,11 @@ $introduction-height: 50vh
 body
   max-width: 960px
   margin: 0 auto
+  font-family: 'Open sans', sans-serif
+  // line-height calculated based on font size and 960px content width:
+  // https://pearsonified.com/typography/
+  font-size: 16px
+  line-height: 28px
 
 .img-responsive
   width: 100%
@@ -36,14 +43,12 @@ html, body, #root, .app
 
 .app
   display: flex
-  flex-flow: column
+  flex-direction: column
   &.introduction-layout
     .introduction
       flex: 0 1 auto
     .map
-      flex: 1 2 auto
-      > div
-        position: absolute !important
+      flex: 1
 
   &.story-layout
     display: block
@@ -54,6 +59,7 @@ html, body, #root, .app
     text-align: center
 
   .map
+    overflow: hidden
     .story-marker
       position: absolute
       cursor: pointer
@@ -62,8 +68,8 @@ html, body, #root, .app
       padding: 4px 12px
       color: #fdfdfd
       border-radius: 7px
-      width: 290px
-      font-size: 0.9em
+      width: 200px
+      font-size: 0.8em
       font-family: 'Roadgeek'
 
       .distance-to-go
