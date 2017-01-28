@@ -5,8 +5,6 @@
     defaultCenter: { lat: 23.5123858, lng: 69.6495247 }
     defaultZoom: 4
 
-  className: 'map'
-
   render: ->
     { apiKey, defaultCenter, defaultZoom } = @props
 

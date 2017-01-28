@@ -18,8 +18,6 @@ $map-height: 40vh
 $blog-height: 100vh - $map-height
 $introduction-height: 50vh
 
-$standard-padding: 0 5em
-
 @font-face
   font-family: 'Roadgeek'
   src: font-url('roadgeek.ttf') format('truetype')
@@ -33,30 +31,29 @@ body
 .img-responsive
   width: 100%
 
-.app
+html, body, #root, .app
   height: 100%
 
+.app
+  display: flex
+  flex-flow: column
   &.introduction-layout
     .introduction
-      height: $introduction-height
+      flex: 0 1 auto
     .map
-      height: 100vh - $introduction-height
+      flex: 1 2 auto
+      > div
+        position: absolute !important
 
   &.story-layout
+    display: block
     .map
-      height: $map-height
-    .blog
-      height: $blog-height
+      height: 50vw
 
   .introduction
     text-align: center
 
-  .map, .blog
-    padding: $standard-padding
-
   .map
-    position: relative
-
     .story-marker
       position: absolute
       cursor: pointer
@@ -79,7 +76,6 @@ body
           text-align: center
 
   .blog
-    position: relative
     overflow: auto
 
     .happened-at
