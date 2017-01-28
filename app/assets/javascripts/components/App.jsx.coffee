@@ -13,21 +13,21 @@
     className
 
   render: ->
-    { google_maps_api_key, stories, activeStoryKey } = this.state
-
-    components = []
-    unless @storyChosen()
-      components.push `<IntroductionView key='introduction' />`
-    components.push `<MapView
-                      key='map'
-                      apiKey={ google_maps_api_key }
-                      stories={ stories } />`
-    if @storyChosen()
-      components.push `<BlogView
-                        key='blog'
-                        stories={ stories }
-                        activeStoryKey={ this.activeStoryKey() } />`
-
     `<div className={this.getClassName()}>
-      { components }
+      { this.renderComponents() }
     </div>`
+
+  renderComponents: ->
+    { google_maps_api_key, stories, activeStoryKey } = @state
+
+    [
+      `<IntroductionView key='introduction' />` unless @storyChosen()
+      `<MapView
+         key='map'
+         apiKey={ google_maps_api_key }
+         stories={ stories } />`
+      `<BlogView
+        key='blog'
+        stories={ stories }
+        activeStoryKey={ this.activeStoryKey() } />` if @storyChosen()
+    ]
