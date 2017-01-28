@@ -16,8 +16,9 @@
 
 $map-height: 40vh
 $blog-height: 100vh - $map-height
+$introduction-height: 50vh
 
-$standard-padding: 0 5em
+@import url('https://fonts.googleapis.com/css?family=Open+Sans')
 
 @font-face
   font-family: 'Roadgeek'
@@ -25,24 +26,40 @@ $standard-padding: 0 5em
   font-weight: normal
   font-style: normal
 
-html, body, #root
-  height: 100%
-  margin: 0
-  padding: 0
+body
+  max-width: 960px
+  margin: 0 auto
+  font-family: 'Open sans', sans-serif
+  // line-height calculated based on font size and 960px content width:
+  // https://pearsonified.com/typography/
+  font-size: 16px
+  line-height: 28px
 
 .img-responsive
   width: 100%
 
-.app
+html, body, #root, .app
   height: 100%
 
-  .map, .blog
-    padding: $standard-padding
+.app
+  display: flex
+  flex-direction: column
+  &.introduction-layout
+    .introduction
+      flex: 0 1 auto
+    .map
+      flex: 1
+
+  &.story-layout
+    display: block
+    .map
+      height: 50vh
+
+  .introduction
+    text-align: center
 
   .map
-    position: relative
-    height: $map-height
-
+    overflow: hidden
     .story-marker
       position: absolute
       cursor: pointer
@@ -51,8 +68,8 @@ html, body, #root
       padding: 4px 12px
       color: #fdfdfd
       border-radius: 7px
-      width: 290px
-      font-size: 0.9em
+      width: 200px
+      font-size: 0.8em
       font-family: 'Roadgeek'
 
       .distance-to-go
@@ -65,8 +82,6 @@ html, body, #root
           text-align: center
 
   .blog
-    position: relative
-    height: $blog-height
     overflow: auto
 
     .happened-at
