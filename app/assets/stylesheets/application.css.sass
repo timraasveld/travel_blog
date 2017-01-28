@@ -16,6 +16,7 @@
 
 $map-height: 40vh
 $blog-height: 100vh - $map-height
+$introduction-height: 50vh
 
 $standard-padding: 0 5em
 
@@ -25,10 +26,9 @@ $standard-padding: 0 5em
   font-weight: normal
   font-style: normal
 
-html, body, #root
-  height: 100%
-  margin: 0
-  padding: 0
+body
+  max-width: 960px
+  margin: 0 auto
 
 .img-responsive
   width: 100%
@@ -36,12 +36,26 @@ html, body, #root
 .app
   height: 100%
 
+  &.introduction-layout
+    .introduction
+      height: $introduction-height
+    .map
+      height: 100vh - $introduction-height
+
+  &.story-layout
+    .map
+      height: $map-height
+    .blog
+      height: $blog-height
+
+  .introduction
+    text-align: center
+
   .map, .blog
     padding: $standard-padding
 
   .map
     position: relative
-    height: $map-height
 
     .story-marker
       position: absolute
@@ -66,7 +80,6 @@ html, body, #root
 
   .blog
     position: relative
-    height: $blog-height
     overflow: auto
 
     .happened-at

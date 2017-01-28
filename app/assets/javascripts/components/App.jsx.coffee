@@ -4,14 +4,30 @@
   activeStoryKey: ->
     @props.routeParams.storyKey || @state.stories[0].key
 
+  storyChosen: ->
+    @props.routeParams.storyKey?
+
+  getClassName: ->
+    className = 'app '
+    className += if @storyChosen() then 'story-layout' else 'introduction-layout'
+    className
+
   render: ->
     { google_maps_api_key, stories, activeStoryKey } = this.state
 
-    `<div className='app'>
-      <MapView
-       apiKey={ google_maps_api_key }
-       stories={ stories } />
-      <BlogView
-       stories={ stories }
-       activeStoryKey={ this.activeStoryKey() } />
+    components = []
+    unless @storyChosen()
+      components.push `<IntroductionView key='introduction' />`
+    components.push `<MapView
+                      key='map'
+                      apiKey={ google_maps_api_key }
+                      stories={ stories } />`
+    if @storyChosen()
+      components.push `<BlogView
+                        key='blog'
+                        stories={ stories }
+                        activeStoryKey={ this.activeStoryKey() } />`
+
+    `<div className={this.getClassName()}>
+      { components }
     </div>`
