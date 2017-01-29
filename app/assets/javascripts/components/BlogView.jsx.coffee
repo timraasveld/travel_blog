@@ -2,7 +2,7 @@
   render: ->
     `<div className="blog">
       { this.renderStory() }
-     </div>``
+     </div>`
 
   renderStory: ->
     { stories } = @props
