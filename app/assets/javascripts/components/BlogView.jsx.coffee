@@ -1,8 +1,8 @@
 @BlogView = React.createClass
   render: ->
     `<div className="blog">
-       { this.renderStory() }
-     </div>`
+      { this.renderStory() }
+     </div>``
 
   renderStory: ->
     { stories } = @props

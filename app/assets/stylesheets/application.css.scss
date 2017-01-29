@@ -1,0 +1,98 @@
+$map-height: 40vh;
+$blog-height: 100vh - $map-height;
+$introduction-height: 50vh;
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+@font-face {
+  font-family: "Roadgeek";
+  src: font-url("roadgeek.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  max-width: 960px;
+  margin: 0 auto;
+  font-family: "Open sans", sans-serif;
+
+  // line-height calculated based on font size and 960px content width:
+  // https://pearsonified.com/typography/
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.img-responsive {
+  width: 100%;
+}
+
+html, body, #root, .app {
+  height: 100%;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+
+  &.introduction-layout {
+    .introduction {
+      flex: 0 1 auto;
+    }
+
+    .map {
+      flex: 1;
+    }
+  }
+
+  &.story-layout {
+    overflow-y: scroll;
+    .map {
+      height: 100vh - $blog-height;
+    }
+
+    .slide-transition-group {
+      height: $blog-height;
+    }
+  }
+
+  .introduction {
+    text-align: center;
+  }
+
+  .map {
+    overflow: hidden;
+
+    .story-marker {
+      position: absolute;
+      cursor: pointer;
+      background: #007a3c;
+      border: #d0d0d0 solid 2px;
+      padding: 4px 12px;
+      color: #fdfdfd;
+      border-radius: 7px;
+      width: 200px;
+      font-size: 0.8em;
+      font-family: "Roadgeek";
+
+      .distance-to-go {
+        float: right;
+      }
+
+      &.periyar-tiger-reserve {
+        width: 144px;
+
+        h1 {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .blog {
+    overflow: auto;
+
+    .happened-at {
+      float: right;
+    }
+  }
+}
