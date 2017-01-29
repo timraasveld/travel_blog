@@ -50,7 +50,7 @@ html, body, #root, .app {
       height: 100vh - $blog-height;
     }
 
-    .slide-transition-group {
+    .blog {
       height: $blog-height;
     }
   }
@@ -89,8 +89,6 @@ html, body, #root, .app {
   }
 
   .blog {
-    overflow: auto;
-
     .happened-at {
       float: right;
     }
